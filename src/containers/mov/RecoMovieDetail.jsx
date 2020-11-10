@@ -61,7 +61,7 @@ const cards = [1,2,3,4,5,6,7];
 
 export default function RecoMovieDetail() {
   const classes = useStyles();
-
+  const user = useSelector(state => (state.userReducer.user))
   const [data, setData] = useState([])
   useEffect(() => {
       axios.get(`http://127.0.0.1:8080/api/recomovies`)

@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid'
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
+import { userActions } from '../../modules/user.action'
 
 function Copyright() {
   return (
@@ -66,24 +67,7 @@ export default function UserLogin() {
   const [password, setPassword] = useState('')
   
   const history = useHistory()
-  const login = e => {
-      e.preventDefault()
-      axios.post(`http://localhost:8080/api/access`, {"user_id":user_id, "password":password})
-          .then(res => {
-              alert(`Welcome ! ${res.data["fname"]}.  ${res.data["user_id"]}'s connection is successful. ! `)
 
-              sessionStorage.setItem("sessionUser", res.data['user_id'])
-              
-              window.location.reload()
-              history.push("/actor")  // 여기 치는 부분으로 이동
-              
-          })
-          .catch(error => {
-              alert("Please check your ID or password.")
-              window.location.reload()
-          })
-
-  }
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -131,7 +115,7 @@ export default function UserLogin() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick= {login}
+              onClick= {e => dispatchEvent(userActions.login(user_id, password))}
             >
               Sign In
             </Button>

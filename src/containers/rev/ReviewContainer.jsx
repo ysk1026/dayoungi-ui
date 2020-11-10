@@ -7,12 +7,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-// import MovieRank from '../../MovieRank';
-// import TopMovie from '../../TopMovie';
-import {RecentList, TopMovie, MovieRank, SearchAppBar} from '../templates';
-// import Searchappbar from '../../Searchappbar';
-
-
+import {RecentReviewList, TopMovie, MovieRank} from '../../components/rev'
+import {Nav} from '../../components/cmm'
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -94,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Main() {
+export default function ReviewContainer() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -109,7 +105,7 @@ export default function Main() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="absolute">
-        <SearchAppBar></SearchAppBar>
+        <Nav></Nav>
       </AppBar>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -130,7 +126,7 @@ export default function Main() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <RecentList />
+                <RecentReviewList />
               </Paper>
             </Grid>
           </Grid>

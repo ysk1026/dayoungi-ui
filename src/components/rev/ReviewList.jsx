@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import axios from 'axios';
 import {context as c} from '../context'
-import './template.style.css'
+import './rev.style.css'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +56,7 @@ const fetchSomeReview = useCallback(async e=> {
 const userId = e => {
   // const revId = e.target.getAttribute('rev-id')
   // console.log(revId)
-  localStorage.setItem("user_id", 'jason');
+  localStorage.setItem("user_id", '10');
   // alert()
 }
   return (
@@ -86,8 +86,8 @@ const userId = e => {
         <TableBody>
           {data.map((i, index) => (
             <TableRow key={index}>
-              <TableCell>{i.user_id}</TableCell>
-              <TableCell>{i.movie_id}</TableCell>
+              <TableCell>{i.usr_id}</TableCell>
+              <TableCell>{i.mov_id}</TableCell>
               <TableCell>{i.title}</TableCell>
               <TableCell>{i.content}</TableCell>
               <TableCell>*</TableCell>

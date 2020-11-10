@@ -70,7 +70,7 @@ export default function ReviewEdit() {
   const modify = () => {
     // alert(`Title: ${title}, UserId: ${userId}, Content: ${content}, ItemId: ${movieId}`)
     alert(`Title: ${title}, Content: ${content}`)
-    axios.put(`http://localhost:8080/api/review${revId}`,{'title':title, 'content': content})
+    axios.put(`http://localhost:8080/api/review/${revId}`,{'title':title, 'content': content})
     .then(res => {
         alert(`Update SUCCESS`)
     })
